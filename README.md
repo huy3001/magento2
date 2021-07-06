@@ -5,7 +5,9 @@ Check Hyva theme and try to integrate current Icko design
 ##  Requirement
 
 NodeJS 16 or higher
+
 Composer 1.10.x or higher
+
 PHP 7.3 or higher
 
 ## How to setup
