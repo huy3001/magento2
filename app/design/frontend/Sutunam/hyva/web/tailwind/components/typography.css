@@ -1,0 +1,11 @@
+.text-sans-serif {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+    @apply antialiased;
+}
+
+body {
+    @apply text-wood font-base leading-normal text-base tracking-normal;
+}

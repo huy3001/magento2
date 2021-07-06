@@ -1,0 +1,20 @@
+.page-wrapper {
+    @apply pt-15;
+
+    @screen md {
+        @apply pt-20;
+    }
+
+    @screen xl {
+        @apply pl-80;
+    }
+}
+
+.table-row-items > div.table-row-item {
+
+    @apply bg-container-darker;
+
+    &:nth-child(2n + 1) {
+        @apply bg-container-lighter;
+    }
+}

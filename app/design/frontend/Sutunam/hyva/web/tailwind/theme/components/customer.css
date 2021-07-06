@@ -1,0 +1,30 @@
+.account-nav ul li a, .account-nav ul li strong {
+    @apply flex justify-between text-secondary py-1
+}
+
+.account-nav ul li a:hover {
+    @apply text-black
+}
+
+.account-nav ul li strong {
+    @apply underline text-black font-normal
+}
+
+.actions-toolbar {
+    @apply mt-6 border-t border-container-darker pt-4 flex justify-between flex-row-reverse items-center
+}
+
+
+.actions-toolbar .primary button {
+    @apply btn;
+
+    @apply bg-primary border border-primary-darker text-white;
+
+    &:hover {
+        @apply bg-primary-darker border border-primary text-white;
+    }
+}
+
+.actions-toolbar a.back {
+    @apply text-secondary-darker underline
+}

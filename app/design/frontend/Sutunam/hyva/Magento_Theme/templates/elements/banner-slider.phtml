@@ -1,0 +1,44 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+?>
+
+<script>
+    function initSliderComponent() {
+        return {
+            banners: [
+                "https://images.unsplash.com/photo-1454111079122-eb76eb2d5754?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMzk2fQ&auto=format&fit=crop&w=1024&q=75"
+            ],
+            title: "Hyvä Themes",
+            content: "Magento Themes that are good.",
+            link: "https://hyva.io/",
+            cta: "Visit hyva.io"
+        }
+    }
+</script>
+
+<div class="banner-slider">
+    <div class="container mx-auto px-0">
+        <div class="banner-slider__content" x-data="initSliderComponent()">
+            <template x-for="banner in banners">
+                <div class="relative shadow-xl sm:overflow-hidden banner-slider__item">
+                    <img class="absolute h-full inset-0 object-cover w-full" :src="banner" loading="lazy" alt="">
+                    <div class="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+                        <h1 class="title-font text-4xl sm:text-5xl mb-2 font-medium text-white" x-text="title" style="text-shadow: 2px 2px 5px black"></h1>
+                        <p class="text-2xl sm:text-3xl mb-4 font-medium text-white" x-text="content" style="text-shadow: 2px 2px 5px black"></p>
+                        <a class="btn btn-primary inline-flex" :href="link" @click.prevent="console.log($event.target)">
+                            <span x-text="cta"></span>
+                            <svg class="w-4 h-4 inline-flex self-center ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,170 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Hyva\Theme\Model\ViewModelRegistry;
+use Hyva\Theme\ViewModel\HeroiconsOutline;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+
+/** @var Escaper $escaper */
+/** @var Template $block */
+/** @var ViewModelRegistry $viewModels */
+
+/** @var HeroiconsOutline $heroicons */
+$heroicons = $viewModels->require(HeroiconsOutline::class);
+
+/** @var Hyva\Theme\ViewModel\StoreConfig $storeConfig */
+$storeConfig = $viewModels->require(Hyva\Theme\ViewModel\StoreConfig::class);
+$showMiniCart = $storeConfig->getStoreConfig(\Magento\Checkout\Block\Cart\Sidebar::XML_PATH_CHECKOUT_SIDEBAR_DISPLAY);
+
+/** @var \Hyva\Theme\ViewModel\SvgIcons $icons */
+$icons = $viewModels->require(\Hyva\Theme\ViewModel\SvgIcons::class);
+?>
+<script>
+    function initHeader () {
+        return {
+            searchOpen: false,
+            cart: {},
+            getData(data) {
+                if (data.cart) { this.cart = data.cart }
+            },
+            menu: initHeaderNavigation()
+        }
+    }
+    function initCompareHeader() {
+        return {
+            compareProducts: null,
+            itemCount: 0,
+            receiveCompareData(data) {
+                if (data['compare-products']) {
+                    this.compareProducts = data['compare-products'];
+                    this.itemCount = this.compareProducts.count;
+                }
+            }
+        }
+    }
+</script>
+<nav id="header"
+     class="z-30 bg-white fixed top-0 left-0 w-full shadow xl:bg-yellow-400"
+     x-data="initHeader()"
+     @keydown.window.escape="searchOpen = false;"
+     @private-content-loaded.window="getData(event.detail.data)"
+>
+    <div class="container flex items-center justify-between w-full py-2.5 sm:py-5">
+        <div class="z-20 hidden absolute bg-white left-0 top-0 h-full w-80 xl:block"></div>
+
+        <!--Main Navigation-->
+        <?= $block->getChildHtml('topmenu') ?>
+
+        <!--Logo-->
+        <?= $block->getChildHtml('logo'); ?>
+
+        <!--Search Icon-->
+        <div class="z-20 flex items-center order-2 sm:absolute sm:left-20 xl:hidden header-search">
+            <a id="menu-search-icon"
+               class="flex items-center no-underline hover:text-black"
+               href="#"
+               @click.prevent="searchOpen = !searchOpen; $nextTick(function () { document.querySelector('#search').select(); });"
+            >
+                <span class="sr-only label">
+                    <?= $escaper->escapeHtml(__('Search')) ?>
+                </span>
+
+                <?= $icons->searchHtml(
+                    "w-4.5 h-4.5 fill-current text-wood-light hover:text-black",
+                    18,
+                    18
+                ) ?>
+            </a>
+        </div>
+
+        <div class="z-20 flex items-center order-4 header-links">
+            <!--Compare Icon-->
+            <a id="compare-link"
+               class="relative invisible flex items-center no-underline hover:text-black"
+               :class="{ 'hidden': !(itemCount > 0) }"
+               href="<?= $escaper->escapeUrl($block->getUrl('catalog/product_compare/index')) ?>"
+               title="<?= $escaper->escapeHtml(__('Compare Products')) ?>"
+               x-data="initCompareHeader()"
+               @private-content-loaded.window="receiveCompareData($event.detail.data)"
+            >
+                <?= $heroicons->scaleHtml(
+                    "w-4.5 h-4.5 md:h-6 md:w-6 hover:text-black",
+                    18,
+                    18
+                ) ?>
+
+                <span class="sr-only label">
+                   <?= $escaper->escapeHtml(__('Compare Products')) ?>
+                </span>
+
+                <span class="absolute top-0 right-0 h-5 px-2 py-1 -mt-5 -mr-4 text-xs font-semibold
+                    leading-none text-center text-white uppercase transform -translate-x-1
+                    translate-y-1/2 bg-yellow-500 rounded-full"
+                >
+                    <span x-text="itemCount"></span>
+                    <span x-show="itemCount === 1" class="sr-only">
+                        <?= $escaper->escapeHtml(__('item')) ?>
+                    </span>
+                    <span x-show="itemCount > 1" class="sr-only">
+                        <?= $escaper->escapeHtml(__('items')) ?>
+                    </span>
+                </span>
+            </a>
+
+            <!--Customer Icon & Dropdown-->
+            <?= $block->getChildHtml('customer') ?>
+
+            <!--Cart Icon-->
+            <a id="menu-cart-icon"
+               <?php if ($showMiniCart): ?>@click.prevent.stop="$dispatch('toggle-cart',{});"<?php endif ?>
+               class="bg-narvik relative flex items-center justify-center ml-2.5 w-10 h-10 rounded-3xl no-underline text-wood-light transition duration-300 ease-out hover:text-black sm:ml-5 sm:px-5 sm:w-auto xl:bg-black xl:text-white xl:hover:text-white"
+               href="<?= $escaper->escapeUrl($block->getUrl('checkout/cart/index')) ?>"
+            >
+                <?= $icons->cartHtml(
+                    "w-4.5 h-4.5 fill-current text-current inline-block xl:h6 xl:w-6 xl:hover:text-current",
+                    18,
+                    18
+                ) ?>
+
+                <span class="font-bold hidden ml-2 text-current sm:inline-block label">
+                    <?= $escaper->escapeHtml(__('My Cart')) ?>
+                </span>
+
+                <span x-text="cart.summary_count"
+                      class="absolute top-0 right-0 hidden h-5 px-2 py-1 -mt-5 -mr-4 text-xs font-semibold
+                        leading-none text-center text-white uppercase transform -translate-x-1
+                        translate-y-1/2 rounded-full bg-primary"
+                      :class="{
+                        'hidden': !cart.summary_count,
+                        'block': cart.summary_count }"
+                ></span>
+            </a>
+
+        </div>
+    </div>
+
+    <!--Search-->
+    <div class="z-30 absolute left-0 top-0 hidden w-full h-full bg-container-lighter xl:bg-transparent xl:block xl:left-90 xl:w-1/3"
+         id="search-content"
+         :class="{ 'block': searchOpen, 'hidden': !searchOpen }"
+         @click.away="searchOpen = false"
+         x-show="true"
+    >
+        <?= $block->getChildHtml('header-search'); ?>
+    </div>
+
+    <!--Cart Drawer-->
+    <?= $block->getChildHtml('cart-drawer'); ?>
+
+    <!--Authentication Pop-Up-->
+    <?= $block->getChildHtml('authentication-popup'); ?>
+</nav>
+

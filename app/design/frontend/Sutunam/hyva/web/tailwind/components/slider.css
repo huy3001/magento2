@@ -1,0 +1,14 @@
+.snap {
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    & > div {
+        scroll-snap-align: start;
+    }
+}
