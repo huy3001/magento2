@@ -135,6 +135,9 @@ module.exports = {
                 '15': '3.75rem',
                 '30': '7.5rem',
                 '90': '22.5rem',
+            },
+            transitionDelay: {
+                '0': '0ms',
             }
         },
     },

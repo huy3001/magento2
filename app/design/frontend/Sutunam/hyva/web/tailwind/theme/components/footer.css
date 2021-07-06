@@ -1,1 +1,35 @@
 .page-footer{}
+
+.footer {
+    &-follow-us {
+        @apply max-w-screen-sm mb-10 mx-auto text-center w-full;
+
+        strong {
+            @apply block font-bold text-wood text-2xl mb-5;
+        }
+
+        p {
+            @apply text-concord;
+        }
+    }
+
+    &-social {
+        @apply flex justify-center mb-10 w-full;
+
+        li {
+            @apply mx-1;
+        }
+
+        a {
+            @apply bg-westar text-white flex justify-center h-10 items-center rounded-3xl w-10; 
+        }
+
+        svg {
+            @apply fill-current text-current;
+        }
+
+        @screen md {
+            @apply w-1/2;
+        }
+    }
+}

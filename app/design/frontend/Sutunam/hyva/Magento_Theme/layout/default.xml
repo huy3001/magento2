@@ -16,5 +16,22 @@
                 <argument name="logo_img_height" xsi:type="number">35</argument>
             </arguments>
         </referenceBlock>
+
+        <referenceBlock name="footer-content">
+            <block class="Magento\Cms\Block\Block" name="footer-follow-us" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_follow_us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer-social" after="form.subscribe">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_social</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <move element="form.subscribe" destination="footer-content" after="footer-follow-us"/>  
+        <move element="footer-static-links" destination="footer-content" after="footer-social"/>  
+        <move element="footer-cms-content" destination="footer-content" after="-"/>
     </body>
 </page>
