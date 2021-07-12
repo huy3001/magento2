@@ -24,7 +24,7 @@ if ($recaptchaViewModel !== null && $recaptchaData = $recaptchaViewModel->getRec
     $recaptchaLegalNotice = $block->getBlockHtml($recaptchaData[ReCaptcha::RECAPTCHA_LEGAL_NOTICE_BLOCK]);
 }
 ?>
-<div class="mb-5 w-full md:w-1/2 footer-subcribe">
+<div class="mb-5 order-2 w-full md:w-1/2 md:max-w-xs footer-subcribe">
     <form class="form subscribe"
           action="<?= $escaper->escapeUrl($block->getFormActionUrl()) ?>"
           method="post"

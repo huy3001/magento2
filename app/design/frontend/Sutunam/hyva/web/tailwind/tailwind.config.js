@@ -79,6 +79,13 @@ module.exports = {
                     darker: '#f5f5f5',
                 }
             },
+            backgroundImage: {
+                'map-footer': 'url(../images/map-footer.png)',
+            },
+            backgroundPosition: {
+                'map-right-center': '95% 50%',
+                'map-left-top': '10px 15px',
+            },
             borderColor: {
                 primary: {
                     lighter: colors.blue['600'],
@@ -96,8 +103,14 @@ module.exports = {
                     darker: '#b6b6b6',
                 }
             },
+            borderRadius: {
+                '4xl': '2rem',
+            },
             fontFamily: {
                 'base': 'Roboto, sans-serif',
+            },
+            fontSize: {
+                '2lg': '2rem',
             },
             minWidth: {
                 8: spacing["8"],
@@ -106,7 +119,8 @@ module.exports = {
                 48: spacing["48"],
             },
             maxWidth: {
-                6: spacing["24"],
+                24: spacing["24"],
+                64: spacing["64"],
                 '1/4': '25%',
                 '1/2': '50%',
                 '3/4': '75%',
@@ -125,13 +139,24 @@ module.exports = {
                 'screen-75': '75vh',
             },
             width: {
+                '3/10': '30%',
+                '7/10': '70%',
                 '4.5': '1.125rem',
+                '15': '3.75rem',
                 '200': '50rem',
+            },
+            height: {
+                '15': '3.75rem',
+            },
+            margin: {
+                '-7.5': '-1.875rem',
+                '15': '3.75rem',
             },
             padding: {
                 '15': '3.75rem'
             },
             inset: {
+                '-7.5': '-1.875rem',
                 '15': '3.75rem',
                 '30': '7.5rem',
                 '90': '22.5rem',

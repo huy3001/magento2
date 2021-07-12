@@ -28,10 +28,31 @@
                     <argument name="block_id" xsi:type="string">footer_social</argument>
                 </arguments>
             </block>
+            <block class="Magento\Cms\Block\Block" name="footer-policy" after="footer-social">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_policy</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer-reassurance" after="footer-policy">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_reassurance</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer-address" after="footer-reassurance">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_address</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="footer-avis-verifies" template="Magento_Theme::html/footer/avis-verifies.phtml" after="footer-address"/>
+            <block class="Magento\Cms\Block\Block" name="footer-other-links" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_other_links</argument>
+                </arguments>
+            </block>
         </referenceBlock>
 
-        <move element="form.subscribe" destination="footer-content" after="footer-follow-us"/>  
-        <move element="footer-static-links" destination="footer-content" after="footer-social"/>  
+        <move element="form.subscribe" destination="footer-content" after="footer-follow-us"/>
+        <move element="footer-static-links" destination="footer-content" after="footer-address"/>
         <move element="footer-cms-content" destination="footer-content" after="-"/>
     </body>
 </page>

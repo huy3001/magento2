@@ -16,7 +16,7 @@ use Magento\Theme\Block\Html\Header\Logo;
 
 $storeName = $block->getThemeName() ?: $block->getLogoAlt()
 ?>
-<div class="z-20 order-3 xl:order-1 max-w-6 sm:absolute sm:left-30 xl:left-10 xl:max-w-1/2 header-logo">
+<div class="z-20 order-3 xl:order-1 max-w-24 sm:absolute sm:left-30 xl:left-10 xl:max-w-1/2 header-logo">
     <a class="flex items-center justify-center text-xl font-medium tracking-wide text-gray-800
         no-underline hover:no-underline font-title"
        href="<?= $escaper->escapeUrl($block->getUrl('')) ?>"

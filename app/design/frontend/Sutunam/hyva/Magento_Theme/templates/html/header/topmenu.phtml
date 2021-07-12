@@ -73,7 +73,7 @@ $heroicons = $viewModels->require(\Hyva\Theme\ViewModel\HeroiconsOutline::class)
             :class="{ '-translate-x-full xl:transform-none' : !menu.open, 'translate-x-0 xl:transform-none' : menu.open }"
         >
             <div class="border-t border-container h-full overflow-x-hidden overflow-y-auto xl:border-t-0 nav-inner">
-                <div class="font-bold text-gray-400 uppercase px-8 py-2 hidden xl:block nav-title">
+                <div class="font-bold text-gray-400 uppercase px-8 py-2.5 hidden xl:block nav-title">
                     <?= $escaper->escapeHtml(__('Menu')) ?>
                 </div>
                 <?php foreach ($menuItems as $index => $menuItem): ?>
@@ -82,7 +82,7 @@ $heroicons = $viewModels->require(\Hyva\Theme\ViewModel\HeroiconsOutline::class)
                         @mouseleave="menu.mobilePanelActiveId = ''"
                     >
                         <div class="flex items-center">
-                            <a class="flex items-center w-full px-8 py-2 border-b cursor-pointer border-container hover:no-underline xl:border-b-0 xl:font-bold level-0"
+                            <a class="flex items-center w-full px-8 py-2.5 border-b cursor-pointer border-container hover:no-underline xl:border-b-0 xl:font-bold level-0"
                                 href="<?= $escaper->escapeHtmlAttr($menuItem['url']) ?>"
                                 title="<?= $escaper->escapeHtmlAttr($menuItem['name']) ?>">
                                 <?= $escaper->escapeHtml($menuItem['name']) ?>
@@ -124,14 +124,14 @@ $heroicons = $viewModels->require(\Hyva\Theme\ViewModel\HeroiconsOutline::class)
                                 }"
                             >
                                 <a href="<?= $escaper->escapeHtmlAttr($menuItem['url']) ?>" title="<?= $escaper->escapeHtmlAttr($menuItem['name']) ?>"
-                                class="flex items-center w-full px-8 py-2 border-b cursor-pointer border-container xl:underline xl:border-b-0 xl:hover:text-yellow-500"
+                                class="flex items-center w-full px-8 py-2.5 border-b cursor-pointer border-container xl:underline xl:border-b-0 xl:hover:text-yellow-500"
                                 >
                                     <span class="ml-4 lg:ml-0"><?= $escaper->escapeHtml(__('View All')) ?></span></a>
                                 <?php foreach ($menuItem['childData'] as $subMenuItem): ?>
 
                                     <a href="<?= $escaper->escapeHtmlAttr($subMenuItem['url']) ?>"
                                     title="<?= $escaper->escapeHtmlAttr($subMenuItem['name']) ?>"
-                                    class="flex items-center w-full px-8 py-2 border-b cursor-pointer border-container text-base xl:underline xl:border-b-0 xl:hover:text-yellow-500"
+                                    class="flex items-center w-full px-8 py-2.5 border-b cursor-pointer border-container text-base xl:underline xl:border-b-0 xl:hover:text-yellow-500"
                                     >
                                         <span class="ml-4 lg:ml-0">
                                             <?= $escaper->escapeHtml($subMenuItem['name']) ?>
