@@ -148,7 +148,7 @@
     }
 
     &-other-links {
-        @apply mb-2.5 order-9 px-5;
+        @apply mb-2.5 order-9 px-5 w-full;
 
         li {
             @apply block mb-2.5;

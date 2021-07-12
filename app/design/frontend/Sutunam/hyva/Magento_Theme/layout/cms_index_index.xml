@@ -10,9 +10,15 @@
 <page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block name="banner-slider" template="Magento_Theme::elements/banner-slider.phtml" before="-"/>
+            <block name="home-banner-slider" template="Magento_Theme::elements/banner-slider.phtml" before="-"/>
+            <block name="home-content-blocks" template="Magento_Theme::elements/content-blocks.phtml" after="home-banner-slider"/>
+            <block name="home-retrieve-post" template="Magento_Theme::elements/retrieve-post.phtml" after="home-content-blocks"/>
+            <block name="home-icko-focus" template="Magento_Theme::elements/icko-focus.phtml" after="home-retrieve-post"/>
         </referenceContainer>
 
         <referenceBlock name="hero" remove="true" />
+        <referenceBlock name="content-1" remove="true" />
+        <referenceBlock name="slider-1" remove="true" />
+        <referenceBlock name="slider-2" remove="true" />
     </body>
 </page>
