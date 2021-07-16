@@ -151,6 +151,7 @@ module.exports = {
             },
             margin: {
                 '-7.5': '-1.875rem',
+                '7.5': '1.875rem',
                 '15': '3.75rem',
             },
             padding: {

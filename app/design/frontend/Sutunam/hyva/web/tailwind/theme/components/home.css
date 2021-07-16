@@ -1,3 +1,50 @@
 .home {
-    
+    &-content-blocks {
+        @screen xl {
+            a {
+                @apply overflow-hidden relative;
+
+                &::before {
+                    content: '';
+                    @apply absolute block border-2 border-white duration-300 ease-out inset-2.5 scale-125 transform transition z-10;
+                }
+
+                &:hover {
+                    &::before {
+                        @apply scale-100;
+                    }
+                }
+            }
+        }
+    }
+
+    &-retrieve-post {
+        @screen xl {
+            .box-retrieve {
+                img,
+                button,
+                .box-retrieve-title {
+                    @apply duration-300 ease-out transition;
+                }
+
+                img {
+                    @apply transform;
+                }
+
+                &:hover {
+                    img {
+                        @apply scale-110;
+                    }
+
+                    button {
+                        @apply bg-yellow-400 shadow-md;
+                    }
+
+                    .box-retrieve-title {
+                        @apply text-yellow-400;
+                    }
+                }
+            }
+        }
+    }
 }

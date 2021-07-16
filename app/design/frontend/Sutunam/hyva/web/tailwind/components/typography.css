@@ -7,5 +7,5 @@ html {
 }
 
 body {
-    @apply text-wood font-base text-sm tracking-normal;
+    @apply bg-white font-base text-sm text-wood tracking-normal;
 }
