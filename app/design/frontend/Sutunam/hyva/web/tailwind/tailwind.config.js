@@ -81,10 +81,14 @@ module.exports = {
             },
             backgroundImage: {
                 'map-footer': 'url(../images/map-footer.png)',
+                'focus-pointer': 'url(../images/icon-pointer.png)',
             },
             backgroundPosition: {
                 'map-right-center': '95% 50%',
                 'map-left-top': '10px 15px',
+            },
+            backgroundSize: {
+                'full-auto': '100% auto',
             },
             borderColor: {
                 primary: {
@@ -142,6 +146,7 @@ module.exports = {
                 '3/10': '30%',
                 '7/10': '70%',
                 '4.5': '1.125rem',
+                '12.5': '3.125rem',
                 '15': '3.75rem',
                 '200': '50rem',
             },

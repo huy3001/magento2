@@ -47,4 +47,15 @@
             }
         }
     }
+
+    &-icko-focus {
+        .f-m-images {
+            a {
+                &::after {
+                    content: '';
+                    @apply absolute bg-focus-pointer bg-full-auto bg-no-repeat bottom-9 h-20 left-1/2 transform -translate-x-1/2 w-12.5;
+                }
+            }
+        }
+    }
 }
