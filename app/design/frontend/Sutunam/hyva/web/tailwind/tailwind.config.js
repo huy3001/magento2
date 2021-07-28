@@ -114,6 +114,7 @@ module.exports = {
                 'base': 'Roboto, sans-serif',
             },
             fontSize: {
+                '2xs': '0.8125rem',
                 '2lg': '2rem',
             },
             minWidth: {
@@ -125,6 +126,7 @@ module.exports = {
             maxWidth: {
                 24: spacing["24"],
                 64: spacing["64"],
+                90: spacing["90"],
                 '1/4': '25%',
                 '1/2': '50%',
                 '3/4': '75%',
@@ -148,10 +150,17 @@ module.exports = {
                 '4.5': '1.125rem',
                 '12.5': '3.125rem',
                 '15': '3.75rem',
+                '17.5': '4.375rem',
+                '90': '22.5rem',
+                '110': '27.5rem',
                 '200': '50rem',
+                'full-80': 'calc(100% - 20rem)',
+                'full-90': 'calc(100% - 22.5rem)',
+                'full-110': 'calc(100% - 27.5rem)',
             },
             height: {
                 '15': '3.75rem',
+                '25.5': '6.375rem',
                 '50': '12.5rem',
             },
             margin: {
@@ -160,7 +169,8 @@ module.exports = {
                 '15': '3.75rem',
             },
             padding: {
-                '15': '3.75rem'
+                '12.5': '3.125rem',
+                '15': '3.75rem',
             },
             inset: {
                 '-7.5': '-1.875rem',

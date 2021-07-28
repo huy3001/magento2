@@ -57,5 +57,40 @@
                 }
             }
         }
+
+        .focus-img {
+            .focus-text {
+                text-shadow: 0 2px 8px rgb(0, 0, 0, .5);
+            }
+        }
+
+        .focus-content {
+            a {
+                &::before {
+                    content: '';
+                    @apply absolute bg-concord h-px left-0 top-2.5 w-5;
+                }
+            }
+        }
+
+        @screen md {
+            .f-m-images {
+                a {
+                    &::after {
+                        @apply bottom-9 h-25.5 w-16;
+                    }
+                }
+            }
+        }
+
+        @screen xl {
+            .f-m-images {
+                a {
+                    &::after {
+                        @apply bottom-11 h-28 w-17.5;
+                    }
+                }
+            }
+        }
     }
 }
