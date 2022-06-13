@@ -4,7 +4,7 @@ const url = require('url');
 const baseDir = path.resolve(
     __dirname.substring(0, __dirname.indexOf('/app/design') + '/app'.length)
 );
-const proxy = process.env.PROXY_URL || 'http://magento2.dev.sutunam.com/';
+const proxy = process.env.PROXY_URL || 'http://hyva.dev.local/';
 const port = process.env.PORT || 3000;
 const { host } = url.parse(proxy);
 

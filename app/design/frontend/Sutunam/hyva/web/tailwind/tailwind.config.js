@@ -202,6 +202,7 @@ module.exports = {
         //     safelist: [/^bg-opacity-/, /^-?[mp][trblxy]?-[4,8]$/, /^text-shadow/],
         // },
         content: [
+            // this theme's phtml files
             '../../**/*.phtml',
             './src/**/*.phtml',
             // parent theme in Vendor
