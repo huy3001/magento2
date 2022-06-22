@@ -1,0 +1,36 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_width" xsi:type="number">180</argument>
+                <argument name="logo_height" xsi:type="number">52</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header.container">
+            <block class="Magento\Cms\Block\Block" name="header.top" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header_top</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="header-wrapper">
+            <container name="header.quick.access" htmlTag="div" htmlClass="header-quick-access" after="logo" >
+                <container name="header.contact.links" htmlTag="div" htmlClass="header-contact-links" before="-" >
+                    <block class="Magento\Cms\Block\Block" name="header.contact" before="-">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">header_contact</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="header.panel.wrapper" remove="true"/>
+
+        <move element="top.links" destination="header.contact.links" after="-"/>
+        <move element="top.search" destination="header.quick.access" after="-"/>
+    </body>
+</page>

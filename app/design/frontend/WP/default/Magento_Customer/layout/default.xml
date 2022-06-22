@@ -1,0 +1,12 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header-wrapper">
+            <container name="header.custom.links" htmlTag="div" htmlClass="header-custom-links" after="header.quick.access">
+                <block class="Magento\Customer\Block\Account\AuthorizationLink" name="header.account.links" template="Magento_Customer::html/header-account-links.phtml" before="-"/>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="my-account-link" remove="true"/>
+        <referenceContainer name="wish-list-link" remove="true"/>
+    </body>
+</page>

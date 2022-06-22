@@ -1,0 +1,147 @@
+.page-header {
+    .header-top {
+        @apply bg-carnaby-tan font-medium leading-5 p-4 text-base text-center text-sauvignon md:px-8 xl:px-16;
+
+        p {
+            @apply m-auto max-w-container;
+        }
+
+        a {
+            @apply text-carrot-orange;
+        }
+    }
+
+    .header.content {
+        @apply bg-center bg-cover bg-header-wrapper bg-no-repeat flex flex-wrap pt-3 px-0 relative;
+    }
+
+    .nav-toggle {
+        @apply absolute left-auto right-5 top-8;
+
+        &::before {
+            @apply text-spicy-mix;
+        }
+    }
+
+    .logo {
+        @apply h-13 mb-0 ml-5 overflow-hidden w-45;
+
+        img {
+            @apply absolute bottom-1 h-full left-0 max-w-none object-none object-left-bottom w-[120%];
+        }
+    }
+
+    .header-quick-access {
+        @apply order-2 p-5 w-full;
+    }
+
+    .header-contact-links {
+        @apply text-sm text-center;
+
+        a {
+            @apply text-carrot-orange;
+        }
+    }
+
+    .header-contact {
+        @apply mb-2.5 text-carnaby-tan;
+    }
+
+    .header.links {
+        @apply hidden md:flex md:justify-center;
+
+        li {
+            @apply mb-0;
+        }
+    }
+
+    .authorization-link {
+        &::after {
+            @apply content-[attr(data-label)] inline-flex ml-2.5 mr-3;
+        }
+    }
+
+    .header-custom-links {
+        @apply absolute flex items-center right-18 top-6;
+    }
+
+    .header-account-links {
+        @apply relative;
+    }
+
+    .account-links-toogle {
+        @apply bg-transparent border-0 shadow-none text-carnaby-tan;
+
+        &.active {
+            @apply text-carrot-orange;
+        }
+
+        path {
+            @apply fill-inherit;
+        }
+    }
+
+    .account-links-list {
+        @apply absolute bg-sauvignon hidden left-1/2 mt-1 px-5 py-4 rounded top-full w-40 -translate-x-1/2;
+
+        li {
+            @apply mb-0;
+        }
+
+        a {
+            @apply text-sm text-spicy-mix;
+        }
+    }
+
+    .active {
+        .account-links-list {
+            @apply block;
+        }
+    }
+
+    .minicart-wrapper {
+        @apply ml-3 mt-0;
+
+        .action.showcart {
+            &::before {
+                @apply text-carnaby-tan;
+            }
+
+            &.active {
+                &::before {
+                    @apply text-carrot-orange;
+                }
+            }
+        }
+
+        .block-minicart {
+            &::before {
+                @apply right-2.5;
+            }
+
+            &::after {
+                @apply right-[9px];
+            }
+        }
+    }
+
+    .block-search {
+        @apply mt-5;
+
+        .label {
+            @apply hidden;
+        }
+        
+        .control {
+            @apply border-0 m-0 p-0;
+        }
+
+        input {
+            @apply bg-sauvignon border-0 h-10 left-auto m-0 p-2.5 rounded-3xl static text-sm text-sorrell-brown placeholder:text-carnaby-tan;
+
+            &:focus {
+                @apply shadow-none;
+            }
+        }
+    }
+}

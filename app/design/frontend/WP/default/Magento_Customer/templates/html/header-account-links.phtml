@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var \Magento\Customer\Block\Account\AuthorizationLink $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$dataPostParam = '';
+$isGuest = true;
+if ($block->isLoggedIn()) {
+    $dataPostParam = sprintf(" data-post='%s'", $block->getPostParams());
+    $isGuest = false;
+}
+?>
+
+<div class="header-account-links">
+    <button class="account-links-toogle" type="button" data-toggle="dropdown" aria-haspopup="true" data-mage-init='{"dropdown":{}}'>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6" width="24" height="24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+    </button>
+
+    <ul class="account-links-list" data-target="dropdown">
+        <li>
+            <a <?= /* @noEscape */ $block->getLinkAttributes() ?>
+                <?= /* @noEscape */ $dataPostParam ?>>
+                <?php if($isGuest) : ?>
+                    <?= $escaper->escapeHtml(__('Login')) ?>
+                <?php else : ?>
+                    <?= $escaper->escapeHtml(__('My Account')) ?>
+                <?php endif; ?>
+            </a>
+        </li>
+        <li>
+            <?php if($isGuest) : ?>
+                <a href="<?= $block->getUrl('customer/account/create'); ?>"><?= $escaper->escapeHtml(__('Register')) ?></a>
+            <?php else : ?>
+                <a href="<?= $block->getUrl('customer/account/logout'); ?>"><?= $escaper->escapeHtml(__('Logout')) ?></a>
+            <?php endif; ?>
+        </li>
+    </ul>
+</div>

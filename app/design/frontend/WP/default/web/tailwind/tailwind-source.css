@@ -1,0 +1,7 @@
+/* start ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+/* end ignore */
+
+@import "tailwindcss/utilities";
+@import "theme.css";
