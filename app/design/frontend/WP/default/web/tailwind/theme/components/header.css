@@ -12,11 +12,11 @@
     }
 
     .header.content {
-        @apply bg-center bg-cover bg-header-wrapper bg-no-repeat flex flex-wrap pt-3 px-0 relative;
+        @apply bg-center bg-cover bg-header-wrapper bg-no-repeat flex flex-wrap items-center pt-3 px-0 relative md:px-5 md:py-2.5;
     }
 
     .nav-toggle {
-        @apply absolute left-auto right-5 top-8;
+        @apply absolute left-auto right-5 top-8 md:hidden;
 
         &::before {
             @apply text-spicy-mix;
@@ -24,19 +24,19 @@
     }
 
     .logo {
-        @apply h-13 mb-0 ml-5 overflow-hidden w-45;
+        @apply h-13 mb-0 ml-5 overflow-hidden w-45 md:h-[93px] md:ml-0 md:w-[100px];
 
         img {
-            @apply absolute bottom-1 h-full left-0 max-w-none object-none object-left-bottom w-[120%];
+            @apply absolute bottom-1 h-full left-0 max-w-none object-none object-left-bottom w-[120%] md:bottom-auto md:top-0 md:object-left-top md:w-full;
         }
     }
 
     .header-quick-access {
-        @apply order-2 p-5 w-full;
+        @apply order-2 p-5 w-full md:p-0 md:w-auto;
     }
 
     .header-contact-links {
-        @apply text-sm text-center;
+        @apply text-sm text-center md:bg-sauvignon md:inline-block md:px-6 md:py-2.5 md:rounded-4xl;
 
         a {
             @apply text-carrot-orange;
@@ -48,7 +48,7 @@
     }
 
     .header.links {
-        @apply hidden md:flex md:justify-center;
+        @apply hidden md:flex md:justify-start;
 
         li {
             @apply mb-0;
@@ -62,11 +62,11 @@
     }
 
     .header-custom-links {
-        @apply absolute flex items-center right-18 top-6;
+        @apply absolute flex items-center right-18 top-6 md:right-6 md:top-16;
     }
 
     .header-account-links {
-        @apply relative;
+        @apply relative md:hidden;
     }
 
     .account-links-toogle {
@@ -82,7 +82,11 @@
     }
 
     .account-links-list {
-        @apply absolute bg-sauvignon hidden left-1/2 mt-1 px-5 py-4 rounded top-full w-40 -translate-x-1/2;
+        @apply absolute bg-sauvignon hidden left-1/2 mt-1 px-5 py-4 rounded shadow-md top-full w-40 -translate-x-1/2;
+
+        &.active {
+            @apply block;
+        }
 
         li {
             @apply mb-0;
@@ -90,12 +94,6 @@
 
         a {
             @apply text-sm text-spicy-mix;
-        }
-    }
-
-    .active {
-        .account-links-list {
-            @apply block;
         }
     }
 
@@ -112,6 +110,14 @@
                     @apply text-carrot-orange;
                 }
             }
+
+            .counter.qty {
+                @apply absolute flex justify-center h-5 items-center m-0 min-w-[20px] -right-1 rounded-2xl text-xs -top-2 z-10;
+
+                &.empty {
+                    @apply hidden;
+                }
+            }
         }
 
         .block-minicart {
@@ -126,7 +132,7 @@
     }
 
     .block-search {
-        @apply mt-5;
+        @apply mt-5 relative md:ml-3.5 md:mt-0 md:p-0;
 
         .label {
             @apply hidden;
@@ -136,11 +142,27 @@
             @apply border-0 m-0 p-0;
         }
 
+        .nested {
+            @apply md:pt-2.5;
+        }
+
+        .advanced {
+            @apply text-sm text-carrot-orange;
+        }
+
+        .action.search {
+            @apply absolute block border-0 left-3.5 top-1/2 -translate-y-1/2;
+
+            &::before {
+                @apply md:hidden;
+            }
+        }
+
         input {
-            @apply bg-sauvignon border-0 h-10 left-auto m-0 p-2.5 rounded-3xl static text-sm text-sorrell-brown placeholder:text-carnaby-tan;
+            @apply bg-sauvignon border-0 h-10 left-auto m-0 pl-12 pr-2.5 py-2.5 rounded-3xl static text-sm text-sorrell-brown placeholder:text-carnaby-tan;
 
             &:focus {
-                @apply shadow-none;
+                @apply ring-0 shadow-none;
             }
         }
     }

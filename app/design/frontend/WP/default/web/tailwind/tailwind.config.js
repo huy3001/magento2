@@ -19,9 +19,14 @@ module.exports = {
             backgroundImage: {
                 'header-wrapper': 'url(../images/bg-wrapper.png)'
             },
+            borderRadius: {
+                '4xl': '2rem'
+            },
             colors: {
                 'carnaby-tan': '#583622',
                 'carrot-orange': '#ee7016',
+                'dune': '#4a4948',
+                'harley-orange': '#c04916',
                 'sambuca': '#3a2d25',
                 'sauvignon': '#f8f3ee',
                 'sorrell-brown': '#997b68',

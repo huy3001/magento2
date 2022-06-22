@@ -11,14 +11,14 @@ if ($block->isLoggedIn()) {
 }
 ?>
 
-<div class="header-account-links">
-    <button class="account-links-toogle" type="button" data-toggle="dropdown" aria-haspopup="true" data-mage-init='{"dropdown":{}}'>
+<div class="header-account-links" x-data="{open : false}">
+    <button class="account-links-toogle" type="button" @click="open = !open" :class="{'active' : open}">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6" width="24" height="24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
         </svg>
     </button>
 
-    <ul class="account-links-list" data-target="dropdown">
+    <ul class="account-links-list" x-show="open" :class="{'active' : open}">
         <li>
             <a <?= /* @noEscape */ $block->getLinkAttributes() ?>
                 <?= /* @noEscape */ $dataPostParam ?>>

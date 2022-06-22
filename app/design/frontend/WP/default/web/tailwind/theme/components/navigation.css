@@ -1,0 +1,57 @@
+.nav-sections {
+    .nav-sections-item-title {
+        @apply hidden;
+    }
+
+    .nav-sections-item-content {
+        @apply mt-0 p-0;
+    }
+}
+
+.navigation {
+    .level0 {
+        @apply text-sm md:m-0;
+
+        &.parent {
+            > .level-top {
+                > .ui-menu-icon {
+                    &::after {
+                        @apply font-bold text-3xl;
+                    }
+                }
+            }
+        }
+
+        > .level-top {
+            @apply font-merri normal-case px-5 py-3.5 text-base text-carnaby-tan md:text-xs;
+
+            &:hover {
+                @apply text-harley-orange;
+            }
+
+            &::after {
+                @apply font-bold top-1/2 -translate-y-1/2;
+            }
+        }
+    }
+
+    .submenu {
+        @apply border-0;
+
+        &:not(:first-child) {
+            @apply pb-4;
+
+            > li {
+                > a {
+                    @apply pl-8;
+                }
+            }
+        }
+
+        li {
+            a {
+                @apply font-medium py-1.5 pl-8 text-dune;
+            }
+        }
+    }
+}
